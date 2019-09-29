@@ -83,22 +83,31 @@
     </style>
     <style>
         body {
-            background-color: aliceblue;
+            background-color: rgba(144, 184, 219, 0.479);
+            background-image: url('./greeninvert5.png');
             color: #0c4a7f;
         }
         
         header {
-            background-color: rgba(124, 188, 243, .1);
-            color: #0c4a7f;
+            background-color: rgba(144, 184, 219, .6);
+            background-image: url('./greeninvert5.png');
+            color: #004782;
             border-radius: 5px;
             padding: 15px;
+            font-size: 1.3rem;
             text-transform: uppercase;
         }
         
         footer {
+            background-color: rgba(144, 184, 219, .6);
+            background-image: url('./greeninvert5.png');
             text-align: center;
             vertical-align: center;
-            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+        
+        footer a {
+            color: #004782;
         }
         
         input {
@@ -115,7 +124,7 @@
         }
         
         .subheader {
-            color: #337ab7;
+            color: #00559e;
         }
         
         .container {
@@ -128,11 +137,10 @@
         }
         
         .navigation {
-            margin-left: auto;
-            margin-right: auto;
+            margin: 10px auto 0px;
             text-align: center;
-            padding: 10px;
-            font-size: 1.8rem;
+            padding: 10px 5px 0px;
+            font-size: 2.2rem;
             text-transform: uppercase;
             /* transform: translateX(35px) */
         }
@@ -148,6 +156,7 @@
         
         a.navi {
             color: #0c4a7f;
+            font-size: 2.2rem;
         }
         
         span.login {
@@ -161,8 +170,8 @@
         }
         
         span.topheader {
-            color: #337ab7;
-            font-size: 1.2rem;
+            color: #00345f;
+            font-size: 1.6rem;
             padding: 0 10px;
             cursor: pointer;
             line-height: 1.5;
@@ -222,6 +231,10 @@
         .footer-links {
             line-height: 2;
         }
+        
+        .dynamic {
+            color: blue;
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.4.3/Rx.js"></script>
 
@@ -240,7 +253,8 @@
 <body>
     <header>
         <!-- <input class="search" placeholder="Search .." onchange="findUser(event)"> -->
-        <span class="login topheader" onclick="googleLogin()">Login</span> &nbsp;
+        <span class="login topheader" id="log" onclick="googleLogin()">Login</span>
+        <span class="login topheader" id="logout" onclick="googleLogout()"></span> &nbsp;
         <a href="/register"><span class="login register topheader">Register</span></a>
         <span class="pull-left topheader">Firestore Serverless Database </span> &nbsp;
         <div class="navigation">

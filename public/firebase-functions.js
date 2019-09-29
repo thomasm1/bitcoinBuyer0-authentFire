@@ -66,14 +66,33 @@ function updateData(e) {
     const newData = db.collection('users').doc('1');
     newData.update({ name: e.target.value })
 }
+
+// header dynamic
+let logged = false;
+
 // Google Login Authentication
 function googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider)
         .then(result => {
             const user = result.user;
-            document.getElementById("new-user").innerHTML = (`Welcome to your Analyst Console, Bitcoinist <strong>${user.displayName}</strong>`);
+            document.getElementById("new-user").innerHTML = (`Welcome to your Analyst Console, Bitcoinist <strong class="dynamic">${user.displayName}</strong>`);
+            console.log('logged-in')
+            document.getElementById("logout").innerHTML = "Log Out";
+            document.getElementById("log").innerHTML = "";
             console.log(user)
         })
         .catch(console.log)
+}
+// logout
+function googleLogout() {
+    firebase.auth().signOut().then(function() {
+        console.log('logged-out');
+        document.getElementById("new-user").innerHTML = (`Welcome to your Analyst Console, Bitcoinist <strong class="dynamic"> ...Register or sign in for data :-)</strong>`);
+        document.getElementById("log").innerHTML = "Log In";
+        document.getElementById("logout").innerHTML = "";
+    }).catch(function(error) {
+        console.log("error logging out");
+        console.log(error);
+    });
 }
