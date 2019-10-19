@@ -59,22 +59,22 @@ setTimeout(() => {
 }, 2000);
 }
 
-function addPromise(price) {
-    return new Promise((resolve, reject) => { 
-        setTimeout(() => {
-            arrayDelay.push(price);
-            console.log("hey num2")
-            // const error = true;
-            const error = false;
-            if (!error) {
-                resolve();
-            } else {
-                reject(console.log("%c Promise Errorrr occured", "color:orange; border:solid 1px orange"));
-            }
-        }, 2000);
-    });
-}
-    
+    function addPromise(price) {
+        return new Promise((resolve, reject) => { 
+            setTimeout(() => {
+                arrayDelay.push(price);
+                console.log("hey num2")
+                // const error = true;
+                const error = false;
+                if (!error) {
+                    resolve();
+                } else {
+                    reject(console.log("%c Promise Errorrr occured", "color:orange; border:solid 1px orange"));
+                }
+            }, 2000);
+        });
+    }
+        
     const promesa_New = new Promise((resolve, reject) => {
         setInterval(() => {  
             resolve(arrayDelay.push(
@@ -93,39 +93,38 @@ function addPromise(price) {
            console.log("inside Promes_NEW")
         }, 3000);
     });
-    const observaPromesa_New = Rx.Observable.fromPromise(promesa_New);
-    observaPromesa.subscribe(result => print3(result));
     ///
 
-async function initAsync() {
-await addPromise({
-    "Date": "2020-01-02",
-    "Symbol": "coinASYNCAdded",
-    "Open": 13000.00,
-    "High": 14000,
-    "Low": 12000.00,
-    "Close": 1350.00
-});
-afterTheDelay();
-}
-initAsync();
 
-///
-
-
+    const observaPromesa_New = Rx.Observable.fromPromise(promesa_New);
+    observaPromesa_New.subscribe(result => print3(result));
+    
+    async function initAsync() {
+    await addPromise({
+        "Date": "2020-01-02",
+        "Symbol": "coinASYNCAdded",
+        "Open": 13000.00,
+        "High": 14000,
+        "Low": 12000.00,
+        "Close": 1350.00
+    });
+    afterTheDelay();
+    }
+    initAsync(); 
+/// 
 
 
 
 
 const timer = Rx.Observable.timer(0)
 timer.subscribe(done => print1('3. timer ding!\n\n'))
-
 // const interval = Rx.Observable.interval(1000)
 // interval.subscribe(int => print1(new Date().getSeconds())) 
-
 const mashup = Rx.Observable.of('string', ['array'], 12) //, true, { property: 'value' })
 mashup.subscribe(val => print1('4. ' + val + '\n\n'))
 
+/////////////////////////////////
+// PRINT FUNCTIONS
 /////////////////////////////////
 // left colum
 function print1(val) {
