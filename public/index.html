@@ -20,8 +20,7 @@
         }
         
         .message {
-            background: white;
-            width: 90%;
+            background: aliceblue;
             height: 70px;
             margin: 10px auto;
             padding: 10px 10px;
@@ -29,7 +28,7 @@
         }
         
         .message h2 {
-            color: #ffa100;
+            color: #166ac9;
             font-weight: bold;
             font-size: 16px;
             margin: 0 0 8px;
@@ -53,7 +52,7 @@
             background: #039be5;
             text-transform: uppercase;
             text-decoration: none;
-            color: white;
+            color: aliceblue;
             padding: 16px;
             border-radius: 4px;
         }
@@ -73,15 +72,11 @@
             body,
             .message {
                 margin-top: 0;
-                background: white;
+                background: aliceblue;
                 box-shadow: none;
             }
-            body {
-                border-top: 16px solid #ffa100;
-            }
         }
-    </style>
-    <style>
+        
         body {
             background-color: rgba(144, 184, 219, 0.479);
             background-image: url('./greeninvert5.png');
@@ -107,7 +102,8 @@
         }
         
         footer a {
-            color: #004782;
+            color: #166ac9;
+            font-weight: bold;
         }
         
         input {
@@ -146,7 +142,7 @@
         }
         
         h5.copyright {
-            color: #3379b7b4;
+            color: #166ac9;
             margin-top: 25px;
         }
         
@@ -165,24 +161,36 @@
         }
         
         span.register {
-            border: solid 1px #ffa100;
+            border: solid 1px #166ac9;
             border-radius: 5px;
         }
         
         span.topheader {
-            color: #00345f;
-            background-color: #71a9eb7d;
+            color: aliceblue;
+            background-color: #166ac97d;
             font-size: 1.6rem;
             padding: 0 10px;
             cursor: pointer;
             line-height: 1.5;
         }
         
+        .dbase {
+            font-style: italic;
+            color: aliceblue;
+            background-color: #1669c957;
+            font-size: 1.6rem;
+            padding: 0 10px;
+            line-height: 1.5;
+            text-transform: capitalize
+        }
+        /* page RXJS */
+        
         .portlet-title {
-            color: #ffa100;
+            color: #166ac9;
             font-style: italic;
             font-size: 1.8rem;
             line-height: 1.5;
+            text-align: center;
         }
         
         .portlet {
@@ -190,9 +198,16 @@
             padding-left: 5px;
         }
         
+        .rxjs {
+            /* border:1px solid rgba(124,188,243,.4); */
+            border: 1px solid rgba(165, 42, 42, 0.377);
+            padding: 2px;
+            background-color: aliceblue;
+        }
+        
         .analytics {
-            height: 300px;
-            max-height: 300px;
+            height: 400px;
+            max-height: 400px;
             overflow-y: scroll;
             padding-left: 5px;
         }
@@ -204,9 +219,8 @@
         
         .analytics p {
             margin: 0;
-            border-left: 1px solid orange;
             padding: 2px;
-            line-height: .9rem;
+            line-height: 1.1rem;
         }
         
         .updates {
@@ -222,7 +236,7 @@
         }
         
         .col-left {
-            border-right: solid 1px orange;
+            border-right: solid 1px #166ac9;
         }
         /* .data {
             border: solid 1px #ffa100;
@@ -257,7 +271,7 @@
         <span class="login topheader" id="log" onclick="googleLogin()">Login</span>
         <span class="login topheader" id="logout" onclick="googleLogout()"></span> &nbsp;
         <a href="/register"><span class="login register topheader">Register</span></a>
-        <span class="pull-left topheader">Firestore Serverless Database </span> &nbsp;
+        <span class="pull-left  dbase">Google Firestore Serverless Database </span> &nbsp;
         <div class="navigation">
             <a class="navi" href="/home"> Home</a>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
             <a class="navi" href="/home"> Console</a>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
@@ -277,32 +291,23 @@
             </h2>
         </div>
 
-        <div class="message analytics">
-            <h2>
-                <p class=" portlet-title">
-                    RxJS Functions
-                </p>
-            </h2>
+        <div class=" row rxjs analytics message">
 
-
+            <p class="portlet-title">RxJS Data Stream Manipulation</p>
             <div class="col col-xs-6 ">
-                <p class="portlet-title"> Streaming Analytics</p>
-                <div id="analytics">
-                </div>
-                
-            </div>
-            <div class="pull-right col col-xs-5 col-right">
-                <p class="portlet-title"> Streaming Mouse Events </p>
-                <div id="analytics2"> 
-                </div>
-                
-                <p class="portlet-title">Streaming Promise analyticsNum2</p>
-           
-                <div id="promises"> </div>
+                <div id="anaNum2"></div>
                 <hr>
-                <p>ana2</p>
-                <div id="analyticsNum2"> </div>
+                <div id="arrayId"></div>
+                <hr>
+                <div id="ana"></div>
             </div>
+
+            <div class="pull-right col col-xs-5 col-right">
+                <div id="ana2">
+                </div>
+            </div>
+
+            <div id="mouse"></div>
 
         </div>
         <div class="message portlet">
@@ -340,6 +345,7 @@
                 <p class="db-userlist" id="db-userlist-inactive"> </p>
             </div>
         </div>
+
     </div>
 
     <footer class="footer">
@@ -357,7 +363,8 @@
     </footer>
     <script src="firebase-functions.js"></script>
 
-    <script src="rxjs-functions.js"></script>
+    <!-- <script src="rxjs-functions.js"></script> -->
+    <script src="rxjs-functions2.js"></script>
 </body>
 
 </html>
